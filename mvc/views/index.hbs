@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elektro Website</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>{{message}}</h1>
+        <p>Your one-stop shop for all things electronics</p>
+    </header>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+    </nav>
+
+    <section>
+        <h2>Featured Products</h2>
+        {{!-- <div>
+            <h3>Product 1</h3>
+            <p>Description of Product 1 goes here.</p>
+        </div>
+        <div>
+            <h3>Product 2</h3>
+            <p>Description of Product 2 goes here.</p>
+        </div>
+        <div>
+            <h3>Product 3</h3>
+            <p>Description of Product 3 goes here.</p>
+        </div> --}}
+
+        {{#each products}}
+        <div>
+            <h3><a href="{{this.id}}">{{this.name}}</a></h3>
+            <p>{{this.description}}</p>
+        </div>
+        {{/each}}
+        {{#each pages}}
+            <a href="?page={{this}}&count={{../count}}">
+                {{this}}
+            </a>
+        {{/each}}
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Elektro. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
